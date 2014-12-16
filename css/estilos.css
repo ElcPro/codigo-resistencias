@@ -1,11 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700' rel='stylesheet' type='text/css);
 @font-face {
 	font-family: 'codigo-colores';
-	src:url('../fuentes/codigo-colores.eot?-m71x39');
-	src:url('../fuentes/codigo-colores.eot?#iefix-m71x39') format('embedded-opentype'),
-		url('../fuentes/codigo-colores.woff?-m71x39') format('woff'),
-		url('../fuentes/codigo-colores.ttf?-m71x39') format('truetype'),
-		url('../fuentes/codigo-colores.svg?-m71x39#codigo-colores') format('svg');
+	src:url('../fuentes/codigo-colores.eot?-fgdzgf');
+	src:url('../fuentes/codigo-colores.eot?#iefix-fgdzgf') format('embedded-opentype'),
+		url('../fuentes/codigo-colores.woff?-fgdzgf') format('woff'),
+		url('../fuentes/codigo-colores.ttf?-fgdzgf') format('truetype'),
+		url('../fuentes/codigo-colores.svg?-fgdzgf#codigo-colores') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -51,6 +51,10 @@
 .icon-youtube:before {
 	content: "\f167";
 }
+.icon-omega:before {
+	content: "\e600";
+	vertical-align: middle;
+}
 body
 {
 	background: #EEE;
@@ -70,6 +74,152 @@ header
 	padding-top: 1em;
 	text-align: center;
 }
+.banda1,
+.banda2,
+.banda3,
+.banda4,
+.banda5
+{
+	background: black;
+	height: 5.3em;
+	margin-top: -5.95em;
+	position: absolute;
+	width: 1em;
+}
+.banda1
+{
+	margin-left: 4.9em;
+}
+.banda2
+{
+	margin-left: 6.5em;
+}
+.banda3
+{
+	margin-left: 8.1em;
+}
+.banda4
+{
+	margin-left: 10.6em;
+}
+.banda5
+{
+	margin-left: 12.2em;
+}
+.banda1down,
+.banda2down,
+.banda3down,
+.banda4down,
+.banda5down
+{
+	color: #222;
+	position: absolute;
+}
+.banda1down
+{
+	margin-left: 4.9em;	
+}
+.banda2down
+{
+	margin-left: 6.5em;
+}
+.banda3down
+{
+	margin-left: 8.1em;
+}
+.banda4down
+{
+	margin-left: 10.6em;
+}
+.banda5down
+{
+	margin-left: 12.2em;
+}
+.banda1up,
+.banda2up,
+.banda3up,
+.banda4up,
+.banda5up
+{
+	color: #222;
+	position: absolute;
+}
+.banda1up
+{
+	margin-left: 4.9em;	
+}
+.banda2up
+{
+	margin-left: 6.5em;
+}
+.banda3up
+{
+	margin-left: 8.1em;
+}
+.banda4up
+{
+	margin-left: 10.6em;
+}
+.banda5up
+{
+	margin-left: 12.2em;
+}
+.color
+{
+	background: transparent;
+}
+.flechas-abajo
+{
+	position: relative;
+	margin-top: 0.5em;
+	margin-bottom: 2em;
+}
+.flechas-abajo div
+{
+	display: inline-block;
+}
+.flechas-arriba
+{
+	position: relative;
+	margin-bottom: 1.5em;
+}
+.flechas-arriba div
+{
+	display: inline-block;
+}
+.resistencia figure
+{	
+	margin: 0;
+	position: relative;
+}
+.resistencia figure img
+{
+	height: 105px;
+	width: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 small.error
 {	
 	margin-top: 0;
@@ -102,17 +252,17 @@ small.error
 	border-top: solid 3px #FDAF32;
 	color: white;
 }
-.formulario
+.valor
 {
 	display: block;
 	text-align: center;
 	padding-top: 1em;
 }
-.formulario .tipo
+.valor .tipo
 {
 	text-align: right;
 }
-.formulario .tipo span
+.valor .tipo span
 {
 	color: #222;
 }
@@ -164,11 +314,4 @@ small.error
 {
 	background: #DDD;
 	padding-top: 1em;
-}
-
-
-
-.color
-{
-	background: transparent;
 }
