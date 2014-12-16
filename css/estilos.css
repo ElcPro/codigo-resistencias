@@ -112,27 +112,32 @@ header
 .banda4down,
 .banda5down
 {
-	color: #222;
+	
 	position: absolute;
 }
 .banda1down
 {
+	color: #222;
 	margin-left: 4.9em;	
 }
 .banda2down
 {
+	color: #222;
 	margin-left: 6.5em;
 }
 .banda3down
 {
+	color: #222;
 	margin-left: 8.1em;
 }
 .banda4down
 {
+	color: #222;
 	margin-left: 10.6em;
 }
 .banda5down
 {
+	color: #222;
 	margin-left: 12.2em;
 }
 .banda1up,
@@ -141,27 +146,31 @@ header
 .banda4up,
 .banda5up
 {
-	color: #222;
 	position: absolute;
 }
 .banda1up
 {
+	color: #222;
 	margin-left: 4.9em;	
 }
 .banda2up
 {
+	color: #222;
 	margin-left: 6.5em;
 }
 .banda3up
 {
+	color: #222;
 	margin-left: 8.1em;
 }
 .banda4up
 {
+	color: #222;
 	margin-left: 10.6em;
 }
 .banda5up
 {
+	color: #222;
 	margin-left: 12.2em;
 }
 .color
@@ -188,12 +197,12 @@ header
 .flechas-abajo a
 {
 	color: #222;
+	text-shadow: rgba(0, 0, 0, 0.7) 0px 0px 10px;
 }
 .flechas-arriba a:hover,
 .flechas-abajo a:hover
 {
-	color: #F5911D;
-	text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+	text-shadow: rgba(0, 0, 0, 0.7) 0px 0px 20px;
 }
 .resistencia figure
 {	

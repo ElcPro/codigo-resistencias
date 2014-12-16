@@ -19,36 +19,58 @@ function cambioColorMas(color,banda){
 	var cambio;
 	if(color == 'inicio'){
 		$(banda).css('background','black');
+		$(banda+'up').css('color','brown');
+		$(banda+'down').css('color','black');
 		cambio = 0;
 	}else if(color == 0){
 		$(banda).css('background','brown');
+		$(banda+'up').css('color','red');
+		$(banda+'down').css('color','black');
 		cambio = 1;
 	}else if(color == 1){
 		$(banda).css('background','red');
+		$(banda+'up').css('color','orange');
+		$(banda+'down').css('color','brown');
 		cambio = 2;
 	}else if(color == 2){
 		$(banda).css('background','orange');
+		$(banda+'up').css('color','yellow');
+		$(banda+'down').css('color','red');
 		cambio = 3;
 	}else if(color == 3){
 		$(banda).css('background','yellow');
+		$(banda+'up').css('color','green');
+		$(banda+'down').css('color','orange');
 		cambio = 4;
 	}else if(color == 4){
 		$(banda).css('background','green');
+		$(banda+'up').css('color','blue');
+		$(banda+'down').css('color','yellow');
 		cambio = 5;
 	}else if(color == 5){
 		$(banda).css('background','blue');
+		$(banda+'up').css('color','purple');
+		$(banda+'down').css('color','green');
 		cambio = 6;
 	}else if(color == 6){
 		$(banda).css('background','purple');
+		$(banda+'up').css('color','gray');
+		$(banda+'down').css('color','blue');
 		cambio = 7;
 	}else if(color == 7){
 		$(banda).css('background','gray');
+		$(banda+'up').css('color','white');
+		$(banda+'down').css('color','purple');
 		cambio = 8;
 	}else if(color == 8){
 		$(banda).css('background','white');
+		$(banda+'up').css('color','black');
+		$(banda+'down').css('color','gray');
 		cambio = 9;
 	}else if(color == 9){
 		$(banda).css('background','transparent');
+		$(banda+'up').css('color','black');
+		$(banda+'down').css('color','white');
 		cambio = 'inicio';
 	}
 	return cambio;
@@ -57,36 +79,58 @@ function cambioColorMenos(color,banda){
 	var cambio;
 	if(color == 'inicio'){
 		$(banda).css('background','white');
+		$(banda+'up').css('color','black');
+		$(banda+'down').css('color','gray');
 		cambio = 9;
 	}else if(color == 0){
 		$(banda).css('background','transparent');
+		$(banda+'up').css('color','black');
+		$(banda+'down').css('color','white');
 		cambio = 'inicio';
 	}else if(color == 1){
 		$(banda).css('background','black');
+		$(banda+'up').css('color','brown');
+		$(banda+'down').css('color','black');
 		cambio = 0;
 	}else if(color == 2){
 		$(banda).css('background','brown');
+		$(banda+'up').css('color','red');
+		$(banda+'down').css('color','black');
 		cambio = 1;
 	}else if(color == 3){
 		$(banda).css('background','red');
+		$(banda+'up').css('color','orange');
+		$(banda+'down').css('color','brown');
 		cambio = 2;
 	}else if(color == 4){
 		$(banda).css('background','orange');
+		$(banda+'up').css('color','yellow');
+		$(banda+'down').css('color','red');
 		cambio = 3;
 	}else if(color == 5){
 		$(banda).css('background','yellow');
+		$(banda+'up').css('color','green');
+		$(banda+'down').css('color','orange');
 		cambio = 4;
 	}else if(color == 6){
 		$(banda).css('background','green');
+		$(banda+'up').css('color','blue');
+		$(banda+'down').css('color','yellow');
 		cambio = 5;
 	}else if(color == 7){
 		$(banda).css('background','blue');
+		$(banda+'up').css('color','purple');
+		$(banda+'down').css('color','green');
 		cambio = 6;
 	}else if(color == 8){
 		$(banda).css('background','purple');
+		$(banda+'up').css('color','gray');
+		$(banda+'down').css('color','blue');
 		cambio = 7;
 	}else if(color == 9){
 		$(banda).css('background','gray');
+		$(banda+'up').css('color','white');
+		$(banda+'down').css('color','purple');
 		cambio = 8;
 	}
 	return cambio;
@@ -95,19 +139,59 @@ function cambioColorToleranciaMas(color,banda){
 	var cambio;
 	if(color == 'inicio'){
 		$(banda).css('background','brown');
+		$(banda+'up').css('color','red');
+		$(banda+'down').css('color','black');
 		cambio = 1;
 	}else if(color == 1){
 		$(banda).css('background','red');
+		$(banda+'up').css('color','#EAC102');
+		$(banda+'down').css('color','brown');
 		cambio = 2;
 	}else if(color == 2){
 		$(banda).css('background','#EAC102');
+		$(banda+'up').css('color','#E3E4E5');
+		$(banda+'down').css('color','red');
 		cambio = 5;
 	}else if(color == 5){
 		$(banda).css('background','#E3E4E5');
+		$(banda+'up').css('color','black');
+		$(banda+'down').css('color','#EAC102');
 		cambio = 10;
 	}else if(color == 10){
 		$(banda).css('background','transparent');
+		$(banda+'up').css('color','brown');
+		$(banda+'down').css('color','#E3E4E5');
 		cambio = 'inicio';
+	}
+	return cambio;
+}
+function cambioColorToleranciaMenos(color,banda){
+	var cambio;
+	if(color == 'inicio'){
+		$(banda).css('background','#E3E4E5');
+		$(banda+'up').css('color','black');
+		$(banda+'down').css('color','#EAC102');
+		cambio = 10;
+	}else if(color == 1){
+		$(banda).css('background','transparent');
+		$(banda+'up').css('color','brown');
+		$(banda+'down').css('color','#E3E4E5');
+		cambio = 'inicio';
+	}else if(color == 2){
+		$(banda).css('background','brown');
+		$(banda+'up').css('color','red');
+		$(banda+'down').css('color','black');
+		cambio = 1;
+	}else if(color == 5){
+		$(banda).css('background','red');
+		$(banda+'up').css('color','#E3E4E5');
+		$(banda+'down').css('color','brown');
+		cambio = 2;
+	}else if(color == 10){
+		$(banda).css('background','#EAC102');
+		$(banda+'up').css('color','black');
+		$(banda+'down').css('color','red');
+		cambio = 5;
 	}
 	return cambio;
 }
@@ -145,11 +229,11 @@ function btn3downPress(e){
 }
 function btn4downPress(e){
 	e.preventDefault();
-	colorB4 = cambioColorMenos(colorB4,'.banda4');
+	colorB4 = cambioColorToleranciaMenos(colorB4,'.banda4');
 }
 function btn5downPress(e){
 	e.preventDefault();
-	colorB5 = cambioColorMenos(colorB5,'.banda5');
+	colorB5 = cambioColorToleranciaMenos(colorB5,'.banda5');
 }
 $('.banda1up').click( btn1upPress );
 $('.banda2up').click( btn2upPress );
