@@ -81,34 +81,39 @@ header
 .banda5,
 .banda6
 {
-	background: transparent;
 	height: 5.7em;
 	margin-top: -6.15em;
 	position: absolute;
 	width: 1em;
 }
 .banda1
-{
+{	
+	background: black;
 	margin-left: 4em;
 }
 .banda2
 {
+	background: black;
 	margin-left: 5.6em;
 }
 .banda3
 {
+	background: black;
 	margin-left: 7.2em;
 }
 .banda4
 {
+	background: #EAC102;
 	margin-left: 13.7em;
 }
 .banda5
 {	
+	background: #EAC102;
 	display: none;
 }
 .banda6
 {	
+	background: brown;
 	display: none;
 }
 .banda1down,
@@ -230,6 +235,35 @@ header
 {
 	height: 105px;
 	width: 300px;
+}
+.totales
+{
+	margin-top: 1em;
+}
+.totales .dato
+{
+	border-right: 2px solid #222;
+	padding-right: 1em;
+}
+.totales div .resultados
+{
+	text-align: right;
+}
+.totales div .resultados.ppm:after
+{
+	content: ' ppm';
+}
+.totales div .resultados.tolerancia:after
+{
+	content: '%';
+}
+.totales div .resultados.tolerancia:before
+{
+	content: '±';
+}
+.totales p
+{
+	margin-bottom: 0.5em;
 }
 
 

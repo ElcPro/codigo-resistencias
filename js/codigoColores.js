@@ -1,34 +1,42 @@
-var $cuatro = ('.cuatroBandas'),
-	$cinco  = ('.cincoBandas'),
-	$seis   = ('.seisBandas'),
-	$valor  = ('#numero')
-	$banda1 = ('.banda1'),
-	$banda2 = ('.banda2'),
-	$banda3 = ('.banda3'),
-	$banda4 = ('.banda4'),
-	$banda5 = ('.banda5'),
-	$banda6 = ('.banda6'),
-	$btn1up = ('.banda1up'),
-	$btn2up = ('.banda2up'),
-	$btn3up = ('.banda3up'),
-	$btn4up = ('.banda4up'),
-	$btn5up = ('.banda5up'),
-	$btn6up = ('.banda6up'),
+var $cuatro   = ('.cuatroBandas'),
+	$cinco    = ('.cincoBandas'),
+	$seis     = ('.seisBandas'),
+	$valor    = ('#numero')
+	$banda1   = ('.banda1'),
+	$banda2   = ('.banda2'),
+	$banda3   = ('.banda3'),
+	$banda4   = ('.banda4'),
+	$banda5   = ('.banda5'),
+	$banda6   = ('.banda6'),
+	$btn1up   = ('.banda1up'),
+	$btn2up   = ('.banda2up'),
+	$btn3up   = ('.banda3up'),
+	$btn4up   = ('.banda4up'),
+	$btn5up   = ('.banda5up'),
+	$btn6up   = ('.banda6up'),
 	$btn1down = ('.banda1down'),
 	$btn2down = ('.banda2down'),
 	$btn3down = ('.banda3down'),
 	$btn4down = ('.banda4down'),
 	$btn5down = ('.banda5down'),
 	$btn6down = ('.banda6down'),
-	colorB1 = colorB2 = 9,
-	colorB3 = 0.01,
-	colorB4 = 7,
-	colorB5 = 7,
-	colorB6 = 1,
-	numBandas = 4;
+	$ohmiage  = ('.ohmios'),
+	$tol      = ('.tolerancia'),
+	$coefTemp = ('.ppm'),
+	colorB1   = colorB2 = 0,
+	colorB3   = 1,
+	colorB4   = 0.05,
+	colorB5   = 0.05,
+	colorB6   = 100,
+	numBandas = 4,
+	ohmios    = 0,
+	tolerancia = 0,
+	ppm = 0;
+
+	calculoValor();
 
 function cuatroBandasSelect(){
-	$('.banda4').css('margin-left','13.7em');
+	$('.banda4').css({margin:'-6.15em 0 0 13.7em',background:'#EAC102'});
 	$('.banda4up').css('margin-left','13.7em');
 	$('.banda4down').css('margin-left','13.7em');
 	$('.banda5').css('display','none');
@@ -40,9 +48,13 @@ function cuatroBandasSelect(){
 	numBandas = 4;
 	colorB3 = 0.01;
 	colorB4 = 7;
+	calculoValor();
 }
 function cincoBandasSelect(){
-	$('.banda4').css('margin-left','8.8em');
+	$('.banda3').css('background','black');
+	$('.banda3up').css('color','black');
+	$('.banda3down').css('color','black');
+	$('.banda4').css({margin:'-6.15em 0 0 8.8em',background:'black'});
 	$('.banda4up').css('margin-left','8.8em');
 	$('.banda4down').css('margin-left','8.8em');
 	$('.banda5').css({margin:'-6.15em 0 0 13.7em',display:'inline-block'});
@@ -52,10 +64,14 @@ function cincoBandasSelect(){
 	$('.banda6up').css('display','none');
 	$('.banda6down').css('display','none');
 	numBandas = 5;
-	colorB3 = 9;
-	colorB4 = 0.01;
+	colorB3 = 0;
+	colorB4 = 1;
+	calculoValor();
 }
 function seisBandasSelect(){
+	$('.banda3').css('background','black');
+	$('.banda3up').css('color','black');
+	$('.banda3down').css('color','black');
 	$('.banda4').css('margin-left','8.8em');
 	$('.banda4up').css('margin-left','8.8em');
 	$('.banda4down').css('margin-left','8.8em');
@@ -66,8 +82,9 @@ function seisBandasSelect(){
 	$('.banda6up').css({margin:'0em 0 0 13.7em',display:'inline-block'});
 	$('.banda6down').css({margin:'0 0 0 13.7em',display:'inline-block'});
 	numBandas = 6;
-	colorB3 = 9;
+	colorB3 = 0;
 	colorB4 = 0.01;
+	calculoValor();
 }
 function cambioColorMas(color,banda){
 	var cambio;
@@ -291,7 +308,7 @@ function cambioColorMultiplicadorMenos(color,banda){
 }
 function cambioColorToleranciaMas(color,banda){
 	var cambio;
-	if(color == 7){
+	if(color == 0.001){
 		$(banda).css('background','#EAC102'); //Dorado
 		$(banda+'up').css('color','#E3E4E5'); //Plata
 		$(banda+'down').css('color','purple');
@@ -305,128 +322,129 @@ function cambioColorToleranciaMas(color,banda){
 		$(banda).css('background','brown');
 		$(banda+'up').css('color','red');
 		$(banda+'down').css('color','#E3E4E5'); //Plata
-		cambio = 1;
-	}else if(color == 1){
+		cambio = 0.01;
+	}else if(color == 0.01){
 		$(banda).css('background','red');
 		$(banda+'up').css('color','green');
 		$(banda+'down').css('color','brown');
-		cambio = 2;
-	}else if(color == 2){
+		cambio = 0.02;
+	}else if(color == 0.02){
 		$(banda).css('background','green');
 		$(banda+'up').css('color','blue');
 		$(banda+'down').css('color','red');
-		cambio = 5;
-	}else if(color == 5){
+		cambio = 0.005;
+	}else if(color == 0.005){
 		$(banda).css('background','blue');
 		$(banda+'up').css('color','purple');
 		$(banda+'down').css('color','green');
-		cambio = 6;
-	}else if(color == 6){
+		cambio = 0.0025;
+	}else if(color == 0.0025){
 		$(banda).css('background','purple');
 		$(banda+'up').css('color','#EAC102'); //Dorado
 		$(banda+'down').css('color','blue');
-		cambio = 7;
+		cambio = 0.001;
 	}
 	return cambio;
 }
 function cambioColorToleranciaMenos(color,banda){
 	var cambio;
-	if(color == 7){
+	if(color == 0.001){
 		$(banda).css('background','blue');
 		$(banda+'up').css('color','purple');
 		$(banda+'down').css('color','green');
-		cambio = 6;
+		cambio = 0.0025;
 	}else if(color == 0.05){
 		$(banda).css('background','purple');
 		$(banda+'up').css('color','#EAC102');
 		$(banda+'down').css('color','blue');
-		cambio = 7;
+		cambio = 0.001;
 	}else if(color == 0.1){
 		$(banda).css('background','#EAC102');
 		$(banda+'up').css('color','#E3E4E5');
 		$(banda+'down').css('color','purple');
 		cambio = 0.05;
-	}else if(color == 1){
+	}else if(color == 0.01){
 		$(banda).css('background','#E3E4E5'); //Plata
 		$(banda+'up').css('color','brown');
 		$(banda+'down').css('color','#EAC102'); //Dorado
 		cambio = 0.1;
-	}else if(color == 2){
+	}else if(color == 0.02){
 		$(banda).css('background','brown');
 		$(banda+'up').css('color','red');
 		$(banda+'down').css('color','#E3E4E5'); //Plata
-		cambio = 1;
-	}else if(color == 5){
+		cambio = 0.01;
+	}else if(color == 0.005){
 		$(banda).css('background','red');
 		$(banda+'up').css('color','green');
 		$(banda+'down').css('color','brown');
-		cambio = 2;
-	}else if(color == 6){
+		cambio = 0.02;
+	}else if(color == 0.0025){
 		$(banda).css('background','green');
 		$(banda+'up').css('color','blue');
 		$(banda+'down').css('color','red');
-		cambio = 5;
+		cambio = 0.005;
 	}
 	return cambio;
 }
 function cambioColorCoefTempMas(color,banda){
 	var cambio;
-	if(color == 1){
+	if(color == 100){
 		$(banda).css('background','red');
 		$(banda+'up').css('color','orange');
 		$(banda+'down').css('color','brown');
-		cambio = 2;
-	}else if(color == 2){
+		cambio = 50;
+	}else if(color == 50){
 		$(banda).css('background','orange');
 		$(banda+'up').css('color','yellow');
 		$(banda+'down').css('color','red');
-		cambio = 3;
-	}else if(color == 3){
+		cambio = 15;
+	}else if(color == 15){
 		$(banda).css('background','yellow');
 		$(banda+'up').css('color','brown');
 		$(banda+'down').css('color','orange');
-		cambio = 4;
-	}else if(color == 4){
+		cambio = 25;
+	}else if(color == 25){
 		$(banda).css('background','brown');
 		$(banda+'up').css('color','red');
 		$(banda+'down').css('color','yellow');
-		cambio = 1;
+		cambio = 100;
 	}
 	return cambio;
 }
 function cambioColorCoefTempMenos(color,banda){
 	var cambio;
-	if(color == 1){
+	if(color == 100){
 		$(banda).css('background','yellow');
 		$(banda+'up').css('color','brown');
 		$(banda+'down').css('color','orange');
-		cambio = 4;
-	}else if(color == 2){
+		cambio = 25;
+	}else if(color == 50){
 		$(banda).css('background','brown');
 		$(banda+'up').css('color','red');
 		$(banda+'down').css('color','yellow');
-		cambio = 1;
-	}else if(color == 3){
+		cambio = 100;
+	}else if(color == 15){
 		$(banda).css('background','red');
 		$(banda+'up').css('color','orange');
 		$(banda+'down').css('color','brown');
-		cambio = 2;
-	}else if(color == 4){
+		cambio = 50;
+	}else if(color == 25){
 		$(banda).css('background','orange');
 		$(banda+'up').css('color','yellow');
 		$(banda+'down').css('color','red');
-		cambio = 3;
+		cambio = 15;
 	}
 	return cambio;
 }
 function btn1upPress(e){
 	e.preventDefault();
 	colorB1 = cambioColorMas(colorB1,'.banda1');
-	calculoValor(colorB1);
+	calculoValor();
 }
 function btn2upPress(e){
 	e.preventDefault();
 	colorB2 = cambioColorMas(colorB2,'.banda2');
+	calculoValor();
 }
 function btn3upPress(e){
 	e.preventDefault();
@@ -435,6 +453,7 @@ function btn3upPress(e){
 	}else if(numBandas == 5 || numBandas == 6){
 		colorB3 = cambioColorMas(colorB3,'.banda3');
 	}
+	calculoValor();
 }
 function btn4upPress(e){
 	e.preventDefault();
@@ -443,22 +462,27 @@ function btn4upPress(e){
 	}else if(numBandas == 5 || numBandas == 6){
 		colorB4 = cambioColorMultiplicadorMas(colorB4,'.banda4');
 	}
+	calculoValor();
 }
 function btn5upPress(e){
 	e.preventDefault();
 	colorB5 = cambioColorToleranciaMas(colorB5,'.banda5');
+	calculoValor();
 }
 function btn6upPress(e){
 	e.preventDefault();
 	colorB6 = cambioColorCoefTempMas(colorB6,'.banda6');
+	calculoValor();
 }
 function btn1downPress(e){
 	e.preventDefault();
 	colorB1 = cambioColorMenos(colorB1,'.banda1');
+	calculoValor();
 }
 function btn2downPress(e){
 	e.preventDefault();
 	colorB2 = cambioColorMenos(colorB2,'.banda2');
+	calculoValor();
 }
 function btn3downPress(e){
 	e.preventDefault();
@@ -467,6 +491,7 @@ function btn3downPress(e){
 	}else if(numBandas == 5 || numBandas == 6){
 		colorB3 = cambioColorMenos(colorB3,'.banda3');
 	}
+	calculoValor();
 }
 function btn4downPress(e){
 	e.preventDefault();
@@ -475,17 +500,40 @@ function btn4downPress(e){
 	}else if(numBandas == 5 || numBandas == 6){
 		colorB4 = cambioColorMultiplicadorMenos(colorB4,'.banda4');
 	}
+	calculoValor();
 }
 function btn5downPress(e){
 	e.preventDefault();
 	colorB5 = cambioColorToleranciaMenos(colorB5,'.banda5');
+	calculoValor();
 }
 function btn6downPress(e){
 	e.preventDefault();
 	colorB6 = cambioColorCoefTempMenos(colorB6,'.banda6');
+	calculoValor();
 }
-function calculoValor(color1,color2,color3){
-
+function calculoValor(){
+	if(numBandas == 4){
+		ohmios = (((colorB1 * 10) + colorB2) * colorB3);
+		tolerancia = ohmios * colorB4;
+		ppm = 'N/A';
+		$('.ohmios').html('<span>'+ohmios+'</span>');
+		$('.tolerancia').html('<span>'+tolerancia+'</span>');
+		$('.ppm').html('<span>'+ppm+'</span>');
+	}else if(numBandas == 5 || numBandas == 6){
+		ohmios = (((colorB1 * 100) + (colorB2 * 10) + colorB3) * colorB4);
+		tolerancia = ohmios * colorB5;
+		ppm = 'N/A';
+		$('.ohmios').html('<span>'+ohmios+'</span>');
+		$('.tolerancia').html('<span>'+tolerancia+'</span>');
+		$('.ppm').html('<span>'+ppm+'</span>');
+		if(numBandas == 6){
+			ppm = colorB6;
+			$('.ohmios').html('<span>'+ohmios+'</span>');
+			$('.tolerancia').html('<span>'+tolerancia+'</span>');
+			$('.ppm').html('<span>'+ppm+'</span>');
+		}
+	}
 }	
 
 $('.cuatroBandas').click( cuatroBandasSelect );
