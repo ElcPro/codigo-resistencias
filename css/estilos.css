@@ -78,39 +78,45 @@ header
 .banda2,
 .banda3,
 .banda4,
-.banda5
+.banda5,
+.banda6
 {
 	background: transparent;
-	height: 5.3em;
-	margin-top: -5.95em;
+	height: 5.7em;
+	margin-top: -6.15em;
 	position: absolute;
 	width: 1em;
 }
 .banda1
 {
-	margin-left: 4.9em;
+	margin-left: 4em;
 }
 .banda2
 {
-	margin-left: 6.5em;
+	margin-left: 5.6em;
 }
 .banda3
 {
-	margin-left: 8.1em;
+	margin-left: 7.2em;
 }
 .banda4
 {
-	margin-left: 10.6em;
+	margin-left: 10.5em;
 }
 .banda5
 {
-	margin-left: 12.2em;
+	margin-left: 12.1em;
+}
+.banda6
+{
+	margin-left: 13.7em;
 }
 .banda1down,
 .banda2down,
 .banda3down,
 .banda4down,
-.banda5down
+.banda5down,
+.banda6down
 {
 	
 	position: absolute;
@@ -118,60 +124,71 @@ header
 .banda1down
 {
 	color: #222;
-	margin-left: 4.9em;	
+	margin-left: 4em;	
 }
 .banda2down
 {
 	color: #222;
-	margin-left: 6.5em;
+	margin-left: 5.6em;
 }
 .banda3down
 {
 	color: #222;
-	margin-left: 8.1em;
+	margin-left: 7.2em;
 }
 .banda4down
 {
 	color: #222;
-	margin-left: 10.6em;
+	margin-left: 10.5em;
 }
 .banda5down
 {
 	color: #222;
-	margin-left: 12.2em;
+	margin-left: 12.1em;
+}
+.banda6down
+{
+	color: #222;
+	margin-left: 13.7em;
 }
 .banda1up,
 .banda2up,
 .banda3up,
 .banda4up,
-.banda5up
+.banda5up,
+.banda6up
 {
 	position: absolute;
 }
 .banda1up
 {
 	color: #222;
-	margin-left: 4.9em;	
+	margin-left: 4em;	
 }
 .banda2up
 {
 	color: #222;
-	margin-left: 6.5em;
+	margin-left: 5.6em;
 }
 .banda3up
 {
 	color: #222;
-	margin-left: 8.1em;
+	margin-left: 7.2em;
 }
 .banda4up
 {
 	color: #222;
-	margin-left: 10.6em;
+	margin-left: 10.5em;
 }
 .banda5up
 {
 	color: #222;
-	margin-left: 12.2em;
+	margin-left: 12.1em;
+}
+.banda6up
+{
+	color: #222;
+	margin-left: 13.7em;
 }
 .color
 {

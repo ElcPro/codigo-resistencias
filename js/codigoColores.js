@@ -1,4 +1,5 @@
-var $banda1 = ('.banda1'),
+var $valor  = ('#numero')
+	$banda1 = ('.banda1'),
 	$banda2 = ('.banda2'),
 	$banda3 = ('.banda3'),
 	$banda4 = ('.banda4'),
@@ -13,7 +14,7 @@ var $banda1 = ('.banda1'),
 	$btn3down = ('.banda3down'),
 	$btn4down = ('.banda4down'),
 	$btn5down = ('.banda5down'),
-	colorB1 = colorB2 = colorB3 = colorB4 = colorB5 = 'inicio';
+	colorB1 = colorB2 = colorB3 = colorB4 = colorB5 = colorB6 = 'inicio';
 
 function cambioColorMas(color,banda){
 	var cambio;
@@ -198,6 +199,7 @@ function cambioColorToleranciaMenos(color,banda){
 function btn1upPress(e){
 	e.preventDefault();
 	colorB1 = cambioColorMas(colorB1,'.banda1');
+	calculoValor(colorB1);
 }
 function btn2upPress(e){
 	e.preventDefault();
@@ -214,6 +216,10 @@ function btn4upPress(e){
 function btn5upPress(e){
 	e.preventDefault();
 	colorB5 = cambioColorToleranciaMas(colorB5,'.banda5');
+}
+function btn6upPress(e){
+	e.preventDefault();
+	colorB6 = cambioColorToleranciaMas(colorB6,'.banda6');
 }
 function btn1downPress(e){
 	e.preventDefault();
@@ -235,13 +241,27 @@ function btn5downPress(e){
 	e.preventDefault();
 	colorB5 = cambioColorToleranciaMenos(colorB5,'.banda5');
 }
+function btn6downPress(e){
+	e.preventDefault();
+	colorB6 = cambioColorToleranciaMenos(colorB6,'.banda6');
+}
+function calculoValor(color1,color2,color3){
+	if(color1 != 'inicio'){
+		$('#numero').val(color1);
+	}else{
+		$('#numero').val('');
+	}
+}	
+
 $('.banda1up').click( btn1upPress );
 $('.banda2up').click( btn2upPress );
 $('.banda3up').click( btn3upPress );
 $('.banda4up').click( btn4upPress );
 $('.banda5up').click( btn5upPress );
+$('.banda6up').click( btn6upPress );
 $('.banda1down').click( btn1downPress );
 $('.banda2down').click( btn2downPress );
 $('.banda3down').click( btn3downPress );
 $('.banda4down').click( btn4downPress );
 $('.banda5down').click( btn5downPress );
+$('.banda6down').click( btn6downPress );
