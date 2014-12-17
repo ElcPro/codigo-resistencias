@@ -1,21 +1,60 @@
-var $valor  = ('#numero')
+var $cuatro = ('.cuatroBandas'),
+	$cinco  = ('.cincoBandas'),
+	$seis   = ('.seisBandas'),
+	$valor  = ('#numero')
 	$banda1 = ('.banda1'),
 	$banda2 = ('.banda2'),
 	$banda3 = ('.banda3'),
 	$banda4 = ('.banda4'),
 	$banda5 = ('.banda5'),
+	$banda6 = ('.banda6'),
 	$btn1up = ('.banda1up'),
 	$btn2up = ('.banda2up'),
 	$btn3up = ('.banda3up'),
 	$btn4up = ('.banda4up'),
 	$btn5up = ('.banda5up'),
+	$btn6up = ('.banda6up'),
 	$btn1down = ('.banda1down'),
 	$btn2down = ('.banda2down'),
 	$btn3down = ('.banda3down'),
 	$btn4down = ('.banda4down'),
 	$btn5down = ('.banda5down'),
+	$btn6down = ('.banda6down'),
 	colorB1 = colorB2 = colorB3 = colorB4 = colorB5 = colorB6 = 'inicio';
 
+function cuatroBandasSelect(){
+	$('.banda4').css('margin-left','13.7em');
+	$('.banda4up').css('margin-left','13.7em');
+	$('.banda4down').css('margin-left','13.7em');
+	$('.banda5').css('display','none');
+	$('.banda5up').css('display','none');
+	$('.banda5down').css('display','none');
+	$('.banda6').css('display','none');
+	$('.banda6up').css('display','none');
+	$('.banda6down').css('display','none');
+}
+function cincoBandasSelect(){
+	$('.banda4').css('margin-left','12.1em');
+	$('.banda4up').css('margin-left','12.1em');
+	$('.banda4down').css('margin-left','12.1em');
+	$('.banda5').css({margin:'-6.15em 0 0 13.7em',display:'inline-block'});
+	$('.banda5up').css({margin:'0 0 0 13.7em',display:'inline-block'});
+	$('.banda5down').css({margin:'0 0 0 13.7em',display:'inline-block'});
+	$('.banda6').css('display','none');
+	$('.banda6up').css('display','none');
+	$('.banda6down').css('display','none');
+}
+function seisBandasSelect(){
+	$('.banda4').css('margin-left','10.5em');
+	$('.banda4up').css('margin-left','10.5em');
+	$('.banda4down').css('margin-left','10.5em');
+	$('.banda5').css('margin-left','12.1em');
+	$('.banda5up').css('margin-left','12.1em');
+	$('.banda5down').css('margin-left','12.1em');
+	$('.banda6').css({margin:'-6.15em 0 0 13.7em',display:'inline-block'});
+	$('.banda6up').css({margin:'0em 0 0 13.7em',display:'inline-block'});
+	$('.banda6down').css({margin:'0 0 0 13.7em',display:'inline-block'});
+}
 function cambioColorMas(color,banda){
 	var cambio;
 	if(color == 'inicio'){
@@ -253,6 +292,9 @@ function calculoValor(color1,color2,color3){
 	}
 }	
 
+$('.cuatroBandas').click( cuatroBandasSelect );
+$('.cincoBandas').click( cincoBandasSelect );
+$('.seisBandas').click( seisBandasSelect );
 $('.banda1up').click( btn1upPress );
 $('.banda2up').click( btn2upPress );
 $('.banda3up').click( btn3upPress );

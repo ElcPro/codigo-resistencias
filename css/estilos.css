@@ -101,15 +101,15 @@ header
 }
 .banda4
 {
-	margin-left: 10.5em;
+	margin-left: 13.7em;
 }
 .banda5
-{
-	margin-left: 12.1em;
+{	
+	display: none;
 }
 .banda6
-{
-	margin-left: 13.7em;
+{	
+	display: none;
 }
 .banda1down,
 .banda2down,
@@ -139,17 +139,17 @@ header
 .banda4down
 {
 	color: #222;
-	margin-left: 10.5em;
+	margin-left: 13.7em;
 }
 .banda5down
 {
+	display: none;
 	color: #222;
-	margin-left: 12.1em;
 }
 .banda6down
 {
+	display: none;
 	color: #222;
-	margin-left: 13.7em;
 }
 .banda1up,
 .banda2up,
@@ -178,17 +178,17 @@ header
 .banda4up
 {
 	color: #222;
-	margin-left: 10.5em;
+	margin-left: 13.7em;
 }
 .banda5up
 {
+	display: none;
 	color: #222;
-	margin-left: 12.1em;
 }
 .banda6up
 {
+	display: none;
 	color: #222;
-	margin-left: 13.7em;
 }
 .color
 {
