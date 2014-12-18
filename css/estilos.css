@@ -229,10 +229,19 @@ header
 {
 	text-shadow: rgba(0, 0, 0, 0.7) 0px 0px 20px;
 }
+.resistencia
+{
+	text-align: center;
+}
 .resistencia figure
 {	
 	margin: 0;
 	position: relative;
+}
+.resistencia figure
+{
+	height: 105px;
+	width: 300px;
 }
 .resistencia figure img
 {
@@ -276,8 +285,187 @@ header
 {
 	margin-bottom: 0.5em;
 }
+@media screen and (min-width: 300px){
 
+	.relleno1
+	{
+		display: block;
+	}
+	.relleno2
+	{
+		display: none;
+	}
+	.relleno3
+	{
+		display: none;
+	}
+	.relleno4
+	{
+		display: none;
+	}
+	.relleno5
+	{
+		display: none;
+	}
+	.relleno6
+	{
+		display: block;
+	}
+}
+@media screen and (min-width: 400px){
 
+	.relleno1
+	{
+		display: none;
+	}
+	.relleno2
+	{
+		display: none;
+	}
+	.relleno3
+	{
+		display: none;
+	}
+	.relleno4
+	{
+		display: none;
+	}
+	.relleno5
+	{
+		display: none;
+	}
+	.relleno6
+	{
+		display: none;
+	}
+	.resistencia figure,
+	.flechas-arriba,
+	.flechas-abajo
+	{	
+		margin-left: 4.8em;
+	}
+}
+@media screen and (min-width: 500px){
+
+	.relleno1
+	{
+		display: none;
+	}
+	.relleno2
+	{
+		display: none;
+	}
+	.relleno3
+	{
+		display: none;
+	}
+	.relleno4
+	{
+		display: none;
+	}
+	.relleno5
+	{
+		display: none;
+	}
+	.relleno6
+	{
+		display: none;
+	}
+	.resistencia figure,
+	.flechas-arriba,
+	.flechas-abajo
+	{	
+		margin-left: 6.5em;
+	}
+}
+@media screen and (min-width: 700px){
+
+	.relleno1
+	{
+		display: block;
+	}
+	.relleno2
+	{
+		display: none;
+	}
+	.relleno3
+	{
+		display: block;
+	}
+	.relleno4
+	{
+		display: block;
+	}
+	.relleno5
+	{
+		display: block;
+	}
+	.relleno6
+	{
+		display: block;
+	}
+	.resistencia figure,
+	.flechas-arriba,
+	.flechas-abajo
+	{	
+		margin-left: 2em;
+	}
+	.totales div .resultados span
+	{
+		font-size: 2em;
+	}
+	.totales div .resultados.ppm:after,
+	.totales div .resultados.tolerancia:after,
+	.totales div .resultados.tolerancia:before,
+	.totales div .resultados.tolerancia2:before
+	{
+		font-size: 1.8em;
+	}
+}
+@media screen and (min-width: 1000px){
+
+	.relleno1
+	{
+		display: block;
+	}
+	.relleno2
+	{
+		display: none;
+	}
+	.relleno3
+	{
+		display: block;
+	}
+	.relleno4
+	{
+		display: block;
+	}
+	.relleno5
+	{
+		display: block;
+	}
+	.relleno6
+	{
+		display: block;
+	}
+	.resistencia figure,
+	.flechas-arriba,
+	.flechas-abajo
+	{	
+		margin-left: 5.2em;
+	}
+	.totales div .resultados span
+	{
+		font-size: 2em;
+	}
+	.totales div .resultados.ppm:after,
+	.totales div .resultados.tolerancia:after,
+	.totales div .resultados.tolerancia:before,
+	.totales div .resultados.tolerancia2:before
+	{
+		font-size: 1.8em;
+	}
+}
 
 
 
