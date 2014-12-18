@@ -51,9 +51,10 @@
 .icon-youtube:before {
 	content: "\f167";
 }
-.icon-omega:before {
+.icon-omega:after {
 	content: "\e600";
-	vertical-align: middle;
+	font-size: 0.7em;
+	padding-left: 0.2em;
 }
 body
 {
@@ -104,17 +105,19 @@ header
 .banda4
 {
 	background: #EAC102;
-	margin-left: 13.7em;
+	margin-left: 13.3em;
 }
 .banda5
 {	
 	background: #EAC102;
 	display: none;
+	margin-left: 13.3em;
 }
 .banda6
 {	
 	background: brown;
 	display: none;
+	margin-left: 13.3em;
 }
 .banda1down,
 .banda2down,
@@ -144,7 +147,7 @@ header
 .banda4down
 {
 	color: #222;
-	margin-left: 13.7em;
+	margin-left: 13.3em;
 }
 .banda5down
 {
@@ -183,7 +186,7 @@ header
 .banda4up
 {
 	color: #222;
-	margin-left: 13.7em;
+	margin-left: 13.3em;
 }
 .banda5up
 {
@@ -242,12 +245,17 @@ header
 }
 .totales .dato
 {
+	border-left: 2px solid #222;
 	border-right: 2px solid #222;
 	padding-right: 1em;
 }
 .totales div .resultados
 {
-	text-align: right;
+	text-align: center;
+}
+.totales div .resultados span
+{
+	font-size: 1em;
 }
 .totales div .resultados.ppm:after
 {
@@ -256,10 +264,13 @@ header
 .totales div .resultados.tolerancia:after
 {
 	content: '%';
+	font-size: 1em;
 }
-.totales div .resultados.tolerancia:before
+.totales div .resultados.tolerancia:before,
+.totales div .resultados.tolerancia2:before
 {
 	content: '±';
+	font-size: 1.2em;
 }
 .totales p
 {

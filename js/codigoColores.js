@@ -30,15 +30,20 @@ var $cuatro   = ('.cuatroBandas'),
 	colorB6   = 100,
 	numBandas = 4,
 	ohmios    = 0,
-	tolerancia = 0,
-	ppm = 0;
+	tolerancia  = 0,
+	porcentaje  = 0,
+	ppm         = 0,
+	magnitud    = '',
+	magnitudTol = '';
+
 
 	calculoValor();
 
 function cuatroBandasSelect(){
-	$('.banda4').css({margin:'-6.15em 0 0 13.7em',background:'#EAC102'});
-	$('.banda4up').css('margin-left','13.7em');
-	$('.banda4down').css('margin-left','13.7em');
+	$('.banda4').css('margin-left','13.3em')
+	$('.banda4').css('background','#EAC102');
+	$('.banda4up').css('margin-left','13.3em');
+	$('.banda4down').css('margin-left','13.3em');
 	$('.banda5').css('display','none');
 	$('.banda5up').css('display','none');
 	$('.banda5down').css('display','none');
@@ -47,19 +52,24 @@ function cuatroBandasSelect(){
 	$('.banda6down').css('display','none');
 	numBandas = 4;
 	colorB3 = 0.01;
-	colorB4 = 7;
+	colorB4 = 0.05;
 	calculoValor();
 }
 function cincoBandasSelect(){
 	$('.banda3').css('background','black');
 	$('.banda3up').css('color','black');
 	$('.banda3down').css('color','black');
-	$('.banda4').css({margin:'-6.15em 0 0 8.8em',background:'black'});
+	$('.banda4').css('margin-left','8.8em');
+	$('.banda4').css('background','black');
 	$('.banda4up').css('margin-left','8.8em');
 	$('.banda4down').css('margin-left','8.8em');
-	$('.banda5').css({margin:'-6.15em 0 0 13.7em',display:'inline-block'});
-	$('.banda5up').css({margin:'0 0 0 13.7em',display:'inline-block'});
-	$('.banda5down').css({margin:'0 0 0 13.7em',display:'inline-block'});
+	$('.banda5').css('margin-left','13.3em');
+	$('.banda5').css('display','block');
+	$('.banda5').css('position','absolute');
+	$('.banda5up').css('margin-left','13.3em');
+	$('.banda5up').css('display','block');
+	$('.banda5down').css('margin-left','13.3em');
+	$('.banda5down').css('display','block');
 	$('.banda6').css('display','none');
 	$('.banda6up').css('display','none');
 	$('.banda6down').css('display','none');
@@ -75,12 +85,20 @@ function seisBandasSelect(){
 	$('.banda4').css('margin-left','8.8em');
 	$('.banda4up').css('margin-left','8.8em');
 	$('.banda4down').css('margin-left','8.8em');
-	$('.banda5').css({margin:'-6.15em 0 0 12.1em',display:'inline-block'});
-	$('.banda5up').css({margin:'0 0 0 12.1em',display:'inline-block'});
-	$('.banda5down').css({margin:'0 0 0 12.1em',display:'inline-block'});
-	$('.banda6').css({margin:'-6.15em 0 0 13.7em',display:'inline-block'});
-	$('.banda6up').css({margin:'0em 0 0 13.7em',display:'inline-block'});
-	$('.banda6down').css({margin:'0 0 0 13.7em',display:'inline-block'});
+	$('.banda5').css('margin-left','11.7em');
+	$('.banda5').css('display','block');
+	$('.banda5').css('position','absolute');
+	$('.banda5up').css('margin-left','11.7em');
+	$('.banda5up').css('display','block');
+	$('.banda5down').css('margin-left','11.7em');
+	$('.banda5down').css('display','block');
+	$('.banda6').css('margin-left','13.3em');
+	$('.banda6').css('display','block');
+	$('.banda6').css('position','absolute');
+	$('.banda6up').css('margin-left','13.3em');
+	$('.banda6up').css('display','block');
+	$('.banda6down').css('margin-left','13.3em');
+	$('.banda6down').css('display','block');
 	numBandas = 6;
 	colorB3 = 0;
 	colorB4 = 0.01;
@@ -512,25 +530,64 @@ function btn6downPress(e){
 	colorB6 = cambioColorCoefTempMenos(colorB6,'.banda6');
 	calculoValor();
 }
+function obtenerMagnitudOhmios(multiplicador){
+	if(ohmios >= 1000000){
+		ohmios /= 1000000;
+		magnitud = 'M';
+	}else if(ohmios >= 1000){
+		ohmios /= 1000;
+		magnitud = 'K';
+	}else{
+		magnitud = '';
+	}
+	if(multiplicador == 0.01){
+		ohmios = ohmios.toFixed(2);
+	}else if(multiplicador == 0.1){
+		ohmios = ohmios.toFixed(1);
+	}
+}
+
+function obtenerMagnitudTolerancia(){
+	if(tolerancia >= 1000000){
+		tolerancia /= 1000000;
+		magnitudTol = 'M';
+	}else if(tolerancia >= 1000){
+		tolerancia /= 1000;
+		magnitudTol = 'K';
+	}else{
+		magnitudTol = '';
+	}
+}
+
 function calculoValor(){
 	if(numBandas == 4){
 		ohmios = (((colorB1 * 10) + colorB2) * colorB3);
 		tolerancia = ohmios * colorB4;
 		ppm = 'N/A';
-		$('.ohmios').html('<span>'+ohmios+'</span>');
-		$('.tolerancia').html('<span>'+tolerancia+'</span>');
+		porcentaje = colorB4 * 100;
+
+		obtenerMagnitudOhmios(colorB3);
+		obtenerMagnitudTolerancia();
+		
+		$('.ohmios').html('<span>'+ohmios+magnitud+'&Omega;</span>');
+		$('.tolerancia').html('<span>'+porcentaje+'</span>');
+		$('.superiorInferior').html('<span>'+tolerancia.toFixed(2)+magnitudTol+'&Omega;</span>');
 		$('.ppm').html('<span>'+ppm+'</span>');
 	}else if(numBandas == 5 || numBandas == 6){
 		ohmios = (((colorB1 * 100) + (colorB2 * 10) + colorB3) * colorB4);
 		tolerancia = ohmios * colorB5;
+		porcentaje = colorB5 * 100;
 		ppm = 'N/A';
-		$('.ohmios').html('<span>'+ohmios+'</span>');
-		$('.tolerancia').html('<span>'+tolerancia+'</span>');
+
+		obtenerMagnitudOhmios(colorB4);
+		obtenerMagnitudTolerancia();
+
+		$('.ohmios').html('<span>'+ohmios+magnitud+'&Omega;</span>');
+		$('.tolerancia').html('<span>'+porcentaje+'</span>');
+		$('.superiorInferior').html('<span>'+tolerancia.toFixed(3)+magnitudTol+'&Omega;</span>');
 		$('.ppm').html('<span>'+ppm+'</span>');
 		if(numBandas == 6){
 			ppm = colorB6;
-			$('.ohmios').html('<span>'+ohmios+'</span>');
-			$('.tolerancia').html('<span>'+tolerancia+'</span>');
 			$('.ppm').html('<span>'+ppm+'</span>');
 		}
 	}
