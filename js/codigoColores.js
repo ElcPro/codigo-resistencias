@@ -1,28 +1,28 @@
-var $cuatro   = ('.cuatroBandas'),
-	$cinco    = ('.cincoBandas'),
-	$seis     = ('.seisBandas'),
-	$valor    = ('#numero')
-	$banda1   = ('.banda1'),
-	$banda2   = ('.banda2'),
-	$banda3   = ('.banda3'),
-	$banda4   = ('.banda4'),
-	$banda5   = ('.banda5'),
-	$banda6   = ('.banda6'),
-	$btn1up   = ('.banda1up'),
-	$btn2up   = ('.banda2up'),
-	$btn3up   = ('.banda3up'),
-	$btn4up   = ('.banda4up'),
-	$btn5up   = ('.banda5up'),
-	$btn6up   = ('.banda6up'),
-	$btn1down = ('.banda1down'),
-	$btn2down = ('.banda2down'),
-	$btn3down = ('.banda3down'),
-	$btn4down = ('.banda4down'),
-	$btn5down = ('.banda5down'),
-	$btn6down = ('.banda6down'),
-	$ohmiage  = ('.ohmios'),
-	$tol      = ('.tolerancia'),
-	$coefTemp = ('.ppm'),
+var $cuatro   = $('.cuatroBandas'),
+	$cinco    = $('.cincoBandas'),
+	$seis     = $('.seisBandas'),
+	$valor    = $('#numero')
+	$banda1   = $('.banda1'),
+	$banda2   = $('.banda2'),
+	$banda3   = $('.banda3'),
+	$banda4   = $('.banda4'),
+	$banda5   = $('.banda5'),
+	$banda6   = $('.banda6'),
+	$btn1up   = $('.banda1up'),
+	$btn2up   = $('.banda2up'),
+	$btn3up   = $('.banda3up'),
+	$btn4up   = $('.banda4up'),
+	$btn5up   = $('.banda5up'),
+	$btn6up   = $('.banda6up'),
+	$btn1down = $('.banda1down'),
+	$btn2down = $('.banda2down'),
+	$btn3down = $('.banda3down'),
+	$btn4down = $('.banda4down'),
+	$btn5down = $('.banda5down'),
+	$btn6down = $('.banda6down'),
+	$ohmiage  = $('.ohmios'),
+	$tol      = $('.tolerancia'),
+	$coefTemp = $('.ppm'),
 	colorB1   = colorB2 = 0,
 	colorB3   = 1,
 	colorB4   = 0.05,
@@ -52,6 +52,7 @@ function elegirConversion(){
 		$('.valor').slideToggle();
 		$('.flechas-arriba').toggle();
 		$('.flechas-abajo').toggle();
+		cuatroBandasSelect();
 	}else{
 		$('.conversion').html('<strong> | </strong><strong> | </strong><strong> | </strong> >> &Omega;');
 		$('.valor').slideToggle();
@@ -614,7 +615,36 @@ function calculoValor(){
 			$('.ppm').html('<span>'+ppm+'</span>');
 		}
 	}
-}	
+}
+
+function verificarFormato(){
+	var i,
+		valor = $valor.val(),
+		total;
+
+	for(i = 0; i < valor.length; i++){
+		total = parseFloat(valor);
+		if(valor[i] >= 0 || valor[i] <= 9 || valor[i] == '.' || valor[i] == 'K' || valor[i] == 'k' || valor[i] == 'M' || valor[i] == 'm'){
+			if(valor[valor.length-2] == 'K' || valor[valor.length-2] == 'k'){
+				 $valor.val($valor.val().substr(0, valor.length-1));
+			}else if(valor[valor.length-2] == 'M' || valor[valor.length-2] == 'm'){
+				$valor.val($valor.val().substr(0, valor.length-1));
+			}
+		valorIngresado(valor,total);
+		}else{
+			$valor.val($valor.val().substr(0, valor.length-1));
+		}
+	}
+}
+
+function valorIngresado(valor,total){
+	if(valor[valor.length-1] == 'K' || valor[valor.length-1] == 'k'){
+		total *= 1000;
+	}else if(valor[valor.length-1] == 'M' || valor[valor.length-1] == 'm'){
+		total *= 1000000;
+	}
+	console.log(total);
+}
 
 $('.conversion').click( elegirConversion );
 $('.cuatroBandas').click( cuatroBandasSelect );
@@ -632,3 +662,4 @@ $('.banda3down').click( btn3downPress );
 $('.banda4down').click( btn4downPress );
 $('.banda5down').click( btn5downPress );
 $('.banda6down').click( btn6downPress );
+$(document).keyup( verificarFormato );
