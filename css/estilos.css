@@ -248,6 +248,10 @@ header
 	height: 105px;
 	width: 300px;
 }
+.selector .tipo-numero .conversion
+{
+	padding: 0.8em 3em;
+}
 .totales
 {
 	margin-top: 1em;
