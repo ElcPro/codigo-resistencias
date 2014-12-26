@@ -643,7 +643,49 @@ function valorIngresado(valor,total){
 	}else if(valor[valor.length-1] == 'M' || valor[valor.length-1] == 'm'){
 		total *= 1000000;
 	}
-	console.log(total);
+	tipoResistencia(total);
+}
+
+function tipoResistencia(valor){
+	var listaColores = [],
+		digito1,
+		digito2,
+		multiplo;
+
+	listaColores = valor;
+	listaColores += '';
+
+	if(valor < 995000000 ){
+		cuatroBandasSelect();
+		if(valor < 10){
+			if(valor == 0){
+				valor = 10;
+			}
+			colorB1 = cambioColorMas(9,'.banda1');
+			colorB2 = cambioColorMas(valor-1,'.banda2');
+			colorB3 = cambioColorMas(9,'.banda3');
+			colorB3 = 1;
+			calculoValor();
+		}else{
+			digito1 = parseInt(listaColores[0]);
+			digito2 = parseInt(listaColores[1]);
+			if(digito2 == 0){
+				digito2 = 10;
+			}
+			colorB3 = cambioColorMas(9,'.banda3');
+			colorB3 = 1;
+			if(listaColores.length >= 3){
+				multiplo = (listaColores.length - 2);
+				multiplo = Math.pow(10,multiplo);
+				colorB3 = cambioColorMultiplicadorMas(multiplo/10,'.banda3');
+			}
+			colorB1 = cambioColorMas(digito1-1,'.banda1');
+			colorB2 = cambioColorMas(digito2-1,'.banda2');
+			calculoValor();
+		}
+	}else{
+		cincoBandasSelect();
+	}
 }
 
 $('.conversion').click( elegirConversion );
