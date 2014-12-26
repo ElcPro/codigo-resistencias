@@ -45,8 +45,25 @@ var $cuatro   = ('.cuatroBandas'),
 
 	calculoValor();
 
+function elegirConversion(){
+	if($('.valor').is(":hidden")){
+		$('.conversion').html('&Omega; >> <strong> | </strong><strong> | </strong><strong> | </strong>');
+		$('.selectorBandas').slideToggle();
+		$('.valor').slideToggle();
+		$('.flechas-arriba').toggle();
+		$('.flechas-abajo').toggle();
+	}else{
+		$('.conversion').html('<strong> | </strong><strong> | </strong><strong> | </strong> >> &Omega;');
+		$('.valor').slideToggle();
+		$('.selectorBandas').slideToggle();
+		$('.flechas-arriba').toggle();
+		$('.flechas-abajo').toggle();
+	}
+	
+}
+
 function cuatroBandasSelect(){
-	$('.banda4').css('margin-left','13.3em')
+	$('.banda4').css('margin-left','13.3em');
 	$('.banda4').css('background','#EAC102');
 	$('.banda4up').css('margin-left','13.3em');
 	$('.banda4down').css('margin-left','13.3em');
@@ -599,6 +616,7 @@ function calculoValor(){
 	}
 }	
 
+$('.conversion').click( elegirConversion );
 $('.cuatroBandas').click( cuatroBandasSelect );
 $('.cincoBandas').click( cincoBandasSelect );
 $('.seisBandas').click( seisBandasSelect );

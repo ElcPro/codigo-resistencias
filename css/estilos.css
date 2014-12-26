@@ -252,6 +252,18 @@ header
 {
 	padding: 0.8em 3em;
 }
+.selector .tipo-numero .conversion strong:nth-child(1)
+{
+	color: yellow;
+}
+.selector .tipo-numero .conversion strong:nth-child(2)
+{
+	color: blue;
+}
+.selector .tipo-numero .conversion strong:nth-child(3)
+{
+	color: red;
+}
 .totales
 {
 	margin-top: 1em;
@@ -525,9 +537,8 @@ small.error
 }
 .valor
 {
-	display: block;
+	display: none;
 	text-align: center;
-	padding-top: 1em;
 }
 .valor .tipo
 {
