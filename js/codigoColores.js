@@ -23,6 +23,7 @@ var $cuatro   = $('.cuatroBandas'),
 	$ohmiage  = $('.ohmios'),
 	$tol      = $('.tolerancia'),
 	$coefTemp = $('.ppm'),
+	$error    = $('#error'),
 	colorB1   = colorB2 = 0,
 	colorB3   = 1,
 	colorB4   = 0.05,
@@ -650,13 +651,15 @@ function tipoResistencia(valor){
 	var listaColores = [],
 		digito1,
 		digito2,
+		digito3,
 		multiplo;
 
 	listaColores = valor;
 	listaColores += '';
 
-	if(valor < 995000000 ){
+	if(valor < 995000000){
 		cuatroBandasSelect();
+		$error.slideUp();
 		if(valor < 10){
 			if(valor == 0){
 				valor = 10;
@@ -683,8 +686,19 @@ function tipoResistencia(valor){
 			colorB2 = cambioColorMas(digito2-1,'.banda2');
 			calculoValor();
 		}
-	}else{
+	}else if(valor <= 9990000000){
 		cincoBandasSelect();
+		$error.slideUp();
+		colorB4 = cambioColorMultiplicadorMas(1000000,'.banda4');
+		digito1 = parseInt(listaColores[0]);
+		digito2 = parseInt(listaColores[1]);
+		digito3 = parseInt(listaColores[2]);
+		colorB1 = cambioColorMas(digito1-1,'.banda1');
+		colorB2 = cambioColorMas(digito2-1,'.banda2');
+		colorB3 = cambioColorMas(digito3-1,'.banda3');
+		calculoValor();
+	}else{
+		$error.slideDown().html('<span>Superaste el máximo de ohmios que se pueden representar</span>');
 	}
 }
 
